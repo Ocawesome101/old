@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "lightsabers:items/saber_hilt_4"
+  }
+}

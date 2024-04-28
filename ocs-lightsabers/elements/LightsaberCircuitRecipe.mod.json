@@ -1,0 +1,43 @@
+{
+  "_fv": 4,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "recipeShapeless": false,
+    "recipeReturnStack": {
+      "value": "CUSTOM:LightsaberCircuit"
+    },
+    "recipeSlots": [
+      {
+        "value": "Items.LEATHER"
+      },
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": "Items.LEATHER"
+      },
+      {
+        "value": "Blocks.LEVER"
+      },
+      {
+        "value": "Items.PRISMARINE_CRYSTALS"
+      },
+      {
+        "value": "Items.ENDER_PEARL"
+      },
+      {
+        "value": "Items.IRON_INGOT"
+      },
+      {
+        "value": "Items.GLOWSTONE_DUST"
+      },
+      {
+        "value": "Items.IRON_INGOT"
+      }
+    ],
+    "smeltingXPReward": 0.0,
+    "smeltingRetstackSize": 1
+  }
+}

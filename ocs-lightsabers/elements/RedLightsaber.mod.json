@@ -1,0 +1,27 @@
+{
+  "_fv": 4,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "saber_hilt_3",
+    "customModelName": "Normal",
+    "name": "Red Lightsaber",
+    "creativeTab": {
+      "value": "CUSTOM:LightsabersTab"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 1,
+    "efficiency": 4.0,
+    "attackSpeed": 10.0,
+    "enchantability": 0,
+    "damageVsEntity": 17.5,
+    "usageCount": 0,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.IRON_INGOT"
+      }
+    ]
+  }
+}

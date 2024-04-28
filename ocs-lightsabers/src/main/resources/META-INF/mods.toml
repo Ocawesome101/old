@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+
+[[mods]]
+modId="lightsabers"
+version="0.7.0"
+displayName="lightsabers"
+credits="Created using mod maker MCreator - https://mcreator.net/about"
+displayURL="https://mcreator.net"
+authors="ocawesome101, MCreator"
+description='''
+A simple mod that adds Lightsabers.
+'''
+
+[[dependencies.lightsabers]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"
+
+
+

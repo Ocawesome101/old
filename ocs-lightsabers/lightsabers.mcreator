@@ -1,0 +1,123 @@
+{
+  "id_map": {},
+  "mod_elements": [
+    {
+      "name": "GreenLightsaber",
+      "type": "tool",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "LightsabersTab",
+      "type": "tab",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "RedLightsaber",
+      "type": "tool",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "LightsaberCircuit",
+      "type": "item",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "LightsaberCircuitRecipe",
+      "type": "recipe",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "GreenLightsaberRecipe",
+      "type": "recipe",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "RedLightsaberRecipe",
+      "type": "recipe",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "BlueLightsaber",
+      "type": "tool",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "BlueLightsaberRecipe",
+      "type": "recipe",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "PurpleLightsaber",
+      "type": "tool",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "PurpleLightsaberRecipe",
+      "type": "recipe",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.lightsabers.lightsabercircuit": "Hilt Circuitry",
+      "item.lightsabers.purplelightsaber": "Purple Lightsaber",
+      "item.lightsabers.bluelightsaber": "Blue Lightsaber",
+      "itemGroup.tablightsaberstab": "Lightsabers",
+      "item.lightsabers.redlightsaber": "Red Lightsaber",
+      "item.lightsabers.greenlightsaber": "Green Lightsaber"
+    }
+  },
+  "workspaceSettings": {
+    "modid": "lightsabers",
+    "modName": "lightsabers",
+    "version": "0.7.0",
+    "description": "A simple mod that adds Lightsabers.",
+    "author": "ocawesome101",
+    "websiteURL": "https://www.curseforge.com/minecraft/mc-mods/ocs-lightsabers",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "1.14.4",
+    "usesProFeatures": false,
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 201900551710
+}
