@@ -49,3 +49,4 @@ lua-utils
 open-kernel
 openos-1.0
 openfs
+open-kernel-2
