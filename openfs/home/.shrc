@@ -1,0 +1,2 @@
+upt --flashpart --id=2 --file=/home/openfs.bin
+openfs --mount --id=2 --path=/ofs

@@ -1,0 +1,10 @@
+component: keep
+computer: keep
+filesystem: keep, integrate with the folder structure i was talking about
+uuid: keep, we're gonna use it for components anyways, so why not expose it user space?
+serialization: keep (already have it in serialization.lua)
+shell: keep, partially implemented
+unicode: keep, it's already available with no hassle, so why remove it
+coroutine: keep
+io: keep partially
+os: keep
