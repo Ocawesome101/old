@@ -19,3 +19,4 @@ oc-os
 oc-os-packages
 ocpu-v2
 misc-utils
+windows-cc
