@@ -1,0 +1,31 @@
+-- A simple logging API. Useful. --
+
+function info(msg)
+ term.write('[ ')
+ term.setTextColor(colors.green)
+ term.write('OK')
+ term.setTextColor(colors.white)
+ term.write(' ] '..msg)
+ print(' ')
+ sleep(0.01)
+end
+
+function warn(msg)
+ term.write('[ ')
+ term.setTextColor(colors.orange)
+ term.write('WARN')
+ term.setTextColor(colors.white)
+ term.write(' ] '..msg)
+ print(' ')
+ sleep(0.01)
+end
+
+function err(msg)
+ term.write('[ ')
+ term.setTextColor(colors.red)
+ term.write('ERROR')
+ term.setTextColor(colors.white)
+ term.write(' ] '..msg)
+ print(' ')
+ sleep(0.01)
+end

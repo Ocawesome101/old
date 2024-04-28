@@ -1,0 +1,40 @@
+-- The OC File Manager, ComputerCraft edition --
+local r = 'y'
+while r == 'y' do
+ local cd = shell.dir()
+ shell.run('ls /'..cd)
+ term.write('> ')
+ local cmd = read()
+ if cmd == ':bk' then
+  shell.run('cd', '..')
+ else
+  if cmd == ':/' then
+   shell.setDir('/')
+  else
+   if cmd == ':rm' then
+    print('Delete what?')
+    local f = read()
+    fs.delete(cd..'/'..f)
+   else
+    if cmd == ':edit' then
+     print('Edit what?')
+     local f = read()
+     shell.run('edit', f)
+    else
+     if cmd == ':q' then
+      r = 'n'
+      shell.run('ui')
+     else
+      if cmd == ':exec' then
+       print('Execute what?')
+       local e = read()
+       shell.run(e)
+      else
+       shell.run('cd', cmd)
+      end
+     end
+    end
+   end
+  end
+ end
+end

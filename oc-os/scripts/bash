@@ -1,0 +1,67 @@
+-- Some of Bash, implemented rather poorly in Lua --
+term.clear()
+print('WARNING: OC BASH IS STILL INCOMPLETE AND VERY BUGGY')
+while true do
+ term.write('user@pc: '..shell.dir()..'$ ')
+ local cmd = read()
+
+ if cmd == 'help' then
+  print('OC-Bash - Bash reimplemented in Lua.')
+  print('WARNING: OC BASH IS INCOMPLETE AND EXTREMELY BUGGY')
+  print('Available commands are:')
+  print('nano | ls | mkdir | cd | rm | file | poweroff | reboot | exit')
+  print('Commands should be input as single words. A command such as nano or mkdir will prompt you for additional arguments.')
+  print('For example:')
+  print('> mkdir')
+  print('MKDIR: example')
+  print('> ls')
+  print('example')
+ end
+
+ if cmd == 'nano' then
+  print('')
+  term.write('File to edit: ')
+  local f = read()
+  shell.run('edit', f) end
+
+ if cmd == 'ls' then
+  fs.list(shell.dir())
+ end
+
+ if cmd == 'mkdir' then
+  print('')
+  term.write('MKDIR: ')
+  local m = read()
+  fs.makeDir(m)
+ end
+
+ if cmd == 'cd' then
+  print('')
+  term.write('CD where? ')
+  local d = read()
+  shell.setDir(d)
+ end
+
+ if cmd == 'rm' then
+  print('')
+  term.write('RM what? ')
+  local r = read()
+  fs.delete(r)
+ end
+
+ if cmd == 'poweroff' then shell.exit() end
+
+ if cmd == 'reboot' then os.reboot() end
+
+ if cmd == 'file' then
+  shell.run('type', f)
+ end
+
+ if cmd == 'exit' then break end
+
+ -- OCPKG will be implemented later!
+ --if cmd == 'ocpkg' then
+ -- if arg1 == 'install' then ocpkg.install(arg2) end
+ -- if arg1 == 'remove' then ocpkg.remove(arg2) end
+ --end
+end

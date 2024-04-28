@@ -1,0 +1,94 @@
+-- The UI for OC-OS --
+-- A TON of functions --
+local function menu(m)
+ local i = 1
+ local w, h = term.getSize()
+ local ctr = w*0.5
+ while true do
+  term.clear()
+  term.setCursorPos(ctr - 5, 7)
+  print('OC-OS MENU')
+  for x = 1, #m, 1 do
+   xpos = ctr - (string.len(m[x])*0.6)
+   term.setCursorPos(xpos, x + 10)
+   if x == i then
+    print('> '..m[x]..'  ')
+   else
+    print('  '..m[x]..' ')
+   end
+  end
+  local event, code = os.pullEvent('key')
+  if event == 'key' then
+   if code == 200 and i > 1 then i = i - 1 end
+   if code == 208 and i < 4 then i = i + 1 end
+   if code == 28 then break end
+  end
+ end
+ return i
+end
+
+local function apps()
+ local mnu = {'1. Files   ','2. Appstore','3. Shell   ', '4. OC Bash ', '5. Back    '}
+ local i = menu(mnu)
+ if i == 1 then shell.run('ocfm') end
+ if i == 2 then
+  term.clear()
+  print('Not implemented yet!')
+ end
+ if i == 3 then
+  term.clear()
+  term.setCursorPos(1,1)
+  shell.run('shell')
+ end
+ if i == 4 then shell.run('bash') end
+ if i == 5 then coroutine.yield() end
+end
+
+local function games()
+ local mnu = {'1. Snake', '2. Back '}
+ local i = menu(mnu)
+ if i == 1 then shell.run('worm') end
+ if i == 2 then coroutine.yield() end
+end
+
+local function stns()
+ local mnu = {'1. Change computer name','2. Back                '}
+ i = menu(mnu)
+ if i == 1 then
+  term.clear()
+  term.setCursorPos(1,1)
+  term.write('Input new computer name: ')
+  name = read()
+  print('')
+  os.setComputerLabel(name)
+  print('Changed computer name to '..name)
+  sleep(1)
+  coroutine.yield()
+ end
+ if i == 2 then
+  coroutine.yield()
+ end
+end
+
+local function sys() -- The system menu
+ local mnu = {'1. Settings','2. Back    '}
+ local i = menu(mnu)
+ if i == 1 then stns() end
+ if i == 2 then coroutine.yield() end
+end
+
+-- The main menu --
+while true do
+ local mnu = {'1. Apps    ','2. Games   ','3. System  ','4. Shutdown'}
+ local i = menu(mnu)
+ if i == 1 then apps() end
+ if i == 2 then games() end
+ if i == 3 then sys() end
+ if i == 4 then
+  local mnu = {'1. Shutdown','2. Restart ','3. Back    '}
+  local i = menu(mnu)
+  if i == 1 then os.shutdown() end
+  if i == 2 then os.reboot() end
+  if i == 3 then print('') end
+ end
+end
