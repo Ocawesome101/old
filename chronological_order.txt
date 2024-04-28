@@ -28,3 +28,4 @@ cc-os
 oc-kernel
 ocs-lightsabers
 morpicks
+cc-bios
