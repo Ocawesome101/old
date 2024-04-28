@@ -39,3 +39,4 @@ open-fs
 openstandards
 open-packages
 open-kernel-2-old
+proton-packages
