@@ -34,3 +34,4 @@ cc-bios-advanced
 cc-unix
 open-kernel-computercraft
 oc-litekernel
+ocemu-cc
