@@ -1,0 +1,27 @@
+local pkg = {
+  {
+    name = "ccemux",
+    comment = "The Lua 'emu' command built into CCEmuX, rewritten for OC-OS",
+    downloadURL = "https://raw.githubusercontent.com/ocawesome101/oc-os-packages/master/ccemux"
+  },
+  {
+    name = "ccemux-compat",
+    comment = "A Lua-based CCEmuX compatibility API for CraftOS-PC 2",
+    downloadURL = "https://raw.githubusercontent.com/ocawesome101/oc-os-packages/master/ccemux-compat"
+  },
+  {
+    name = "oc-os-base",
+    comment = "The OC-OS base system",
+    downloadURL = "https://raw.githubusercontent.com/ocawesome101/oc-os-packages/master/oc-os-base"
+  },
+  {
+    name = "modc",
+    comment = "A module controller / API loader for OC-OS",
+    downloadURL = "https://raw.githubusercontent.com/ocawesome101/oc-os-packages/master/modc"
+  },
+  {
+    name = "ocpkg",
+    comment = "A package manager for OC-OS",
+    downloadURL = "https://raw.githubusercontent.com/ocawesome101/oc-os-packages/master/ocpkg"
+  }
+}

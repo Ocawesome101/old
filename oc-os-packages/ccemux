@@ -1,0 +1,20 @@
+-- CCEmuX Compatibility Layer --
+
+local function install()
+  local fileContent = 
+[[
+local cc = {}
+cc.openEmu = function(num)
+  periphemu.attach("left", (num or os.getComputerID(0)), "computer")
+end
+
+_G.ccemux = cc
+]]
+  local function writeTo(file, data)
+    local h = fs.open(file, "w")
+    h.write(data)
+    h.close()
+  end
+  
+  writeTo("/sys/modules/ccemux.lua", fileContent)
+end

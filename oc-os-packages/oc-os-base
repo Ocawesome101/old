@@ -1,0 +1,34 @@
+-- Base system installer for OC-OS --
+-- These scripts are downloaded, then loaded as APIs. They should not contain actual package content
+-- unless it is in string form, else things may break badly --
+
+local install = function()
+  local function get(url) -- Minimal
+    return http.get(url).readAll()
+  end
+  
+  local function writeTo(file, data)
+    local h = fs.open(file, "w")
+    h.write(data)
+    h.close()
+  end
+  
+  local id = "W5ZkVYSi"
+  
+  local data = get("https://pastebin.com/raw/" .. id)
+  writeTo("/gitget", data)
+  local ok, err = loadfile("/gitget")
+  if not ok then printError(err); return false end
+  
+  shell = {}
+  
+  shell.resolve = function(path) -- This hurts. It physically hurts.
+    return path
+  end
+  
+  ok("ocawesome101", "oc-os-v1")
+end
+
+local uninstall = function()
+  printError("You must manually uninstall OC-OS. Uninstalling from inside OC-OS will leave your system in a broken state.")
+end
