@@ -21,3 +21,4 @@ ocpu-v2
 misc-utils
 windows-cc
 oc-os-2
+open-oc-os
