@@ -1,0 +1,1 @@
+local a,i,d,h,e,o,c=computer.getBootAddress(),component.invoke,'';h,e=i(a,'open','/l4/kern.lua')if not h then error(e)end;repeat c=i(a,'read',h,math.huge)d=d..(c or'')until not c;i(a,'close',h)o=load(d,'=/l4/kern.lua','bt',_G)if o then o()end
