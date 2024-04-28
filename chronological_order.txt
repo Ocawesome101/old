@@ -38,3 +38,4 @@ ocemu-cc
 open-fs
 openstandards
 open-packages
+open-kernel-2-old
