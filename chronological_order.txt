@@ -25,3 +25,4 @@ open-oc-os
 ocbios
 lua-unix-utils
 cc-os
+oc-kernel
