@@ -63,3 +63,4 @@ cc-ocbios
 oc-cc-kernel
 lua-games
 oc-stream
+mclang
