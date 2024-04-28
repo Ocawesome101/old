@@ -12,4 +12,4 @@ rm -rf $1/.git
 
 echo "$1" >> chronological_order.txt
 
-git add .; git commit -m "add $1"
+git add .; git commit
