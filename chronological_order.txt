@@ -36,3 +36,4 @@ open-kernel-computercraft
 oc-litekernel
 ocemu-cc
 open-fs
+openstandards
