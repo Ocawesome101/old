@@ -1,0 +1,28 @@
+-- Defines some logging functions used in OC-OS --
+local time = 0.02
+function warn(message)
+ write(' [ ')
+ term.setTextColor(colors.orange)
+ write('WARN')
+ term.setTextColor(colors.white)
+ print(' ] '..message)
+ sleep(time)
+end
+
+function err(message)
+ write(' [ ')
+ term.setTextColor(colors.red)
+ write('ERROR')
+ term.setTextColor(colors.white)
+ print(' ] '..message)
+ sleep(time)
+end
+
+function info(message)
+ write(' [ ')
+ term.setTextColor(colors.green)
+ write('OK')
+ term.setTextColor(colors.white)
+ print(' ] '..message)
+ sleep(time)
+end

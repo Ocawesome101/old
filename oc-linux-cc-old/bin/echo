@@ -1,0 +1,15 @@
+-- Echo --
+
+local e = {...}
+
+if #e < 1 then
+ print('')
+else
+ local i = 0
+ local txt = ''
+ while i ~= #e do
+  i = i + 1
+  term.write(e[i]..' ')
+ end
+ print('')
+end

@@ -10,4 +10,6 @@ rm -rf $1/.git
 
 [ -z "$2" ] && gh repo delete ocawesome101/$1
 
+echo "$1" >> chronological_order.txt
+
 git add .; git commit -m "add $1"

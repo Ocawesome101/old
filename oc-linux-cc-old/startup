@@ -1,0 +1,62 @@
+-- Set up to mostly ignore the /rom folder, except for calls within scripts --
+term.clear()
+term.setCursorPos(1, 1)
+sleep(0.5)
+os.loadAPI('/lib/log')
+log.info('Started logging service')
+log.info('Changing CraftOS shell\'s PATH')
+shell.setPath('.:/usr/bin/CraftOS:/usr/bin/:/sbin:/bin:/bin/bash.d')
+if os.version() ~= 'CraftOS 1.8' then
+ log.warn('Running on unsupported CraftOS version!')
+ log.warn('This should not affect things too much, but should be kept in mind.')
+end
+log.info('Taking care of some default aliases')
+local msg = 'Removing alias '
+log.info(msg..'LS')
+shell.clearAlias('ls')
+log.info(msg..'SH')
+shell.clearAlias('sh')
+log.info(msg..'RM')
+shell.clearAlias('rm')
+log.info(msg..'DIR')
+shell.clearAlias('dir')
+log.info(msg..'CLR')
+shell.clearAlias('clr')
+log.info(msg..'MV')
+shell.clearAlias('mv')
+log.info(msg..'CP')
+shell.clearAlias('cp')
+log.info(msg..'BG')
+shell.clearAlias('bg')
+log.info(msg..'FG')
+shell.clearAlias('fg')
+if os.getComputerLabel == nil then -- In case a label has not been set, should not happen
+ os.setComputerLabel('linux')
+end
+log.info('Trying to change os.version() to \'OC Linux 0.5.0\' (old is '..os.version()..')')
+ver_old = os.version()
+ver = 'OC Linux 0.5.0'
+function os.version()
+ return ver
+end
+if os.version() == ver then
+ log.info('Changed os.version()')
+else
+ log.err('Failed to change os.version()')
+end
+log.info('Password/multiuser not yet implemented; auto-logging in as user \'user\'')
+shell.setDir('/home/user')
+log.info('Starting /bin/sh')
+
+-- The next four lines don't work yet
+--bLogin = false
+--while bLogin ~= true do
+-- bLogin = shell.run('login')
+--end
+
+shell.run('sh')
+log.info('Stopped /bin/sh')
+log.info('Stopping logging service')
+log.info('Reached target Shutdown')
+sleep(0.3)
+os.shutdown()

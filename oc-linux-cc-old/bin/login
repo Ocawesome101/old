@@ -1,0 +1,100 @@
+term.write(os.getComputerLabel()..' login: ')
+uname = read()
+pass = ''
+term.write('Password:')
+while true do
+ local event, code = os.pullEvent()
+ if event == 'key' then
+  if code == keys.a then
+   pass = pass..'a'
+  end
+  if code == keys.b then
+   pass = pass..'b'
+  end
+  if code == keys.c then
+   pass = pass..'c'
+  end
+  if code == keys.d then
+   pass = pass..'d'
+  end
+  if code == keys.d then
+   pass = pass..'d'
+  end
+  if code == keys.e then
+   pass = pass..'e'
+  end
+  if code == keys.f then
+   pass = pass..'f'
+  end
+  if code == keys.g then
+   pass = pass..'g'
+  end
+  if code == keys.h then
+   pass = pass..'h'
+  end
+  if code == keys.i then
+   pass = pass..'i'
+  end
+  if code == keys.j then
+   pass = pass..'j'
+  end
+  if code == keys.k then
+   pass = pass..'k'
+  end
+  if code == keys.l then
+   pass = pass..'l'
+  end
+  if code == keys.m then
+   pass = pass..'m'
+  end
+  if code == keys.n then
+   pass = pass..'n'
+  end
+  if code == keys.o then
+   pass = pass..'o'
+  end
+  if code == keys.p then
+   pass = pass..'p'
+  end
+  if code == keys.q then
+   pass = pass..'q'
+  end
+  if code == keys.r then
+   pass = pass..'r'
+  end
+  if code == keys.s then
+   pass = pass..'s'
+  end
+  if code == keys.t then
+   pass = pass..'t'
+  end
+  if code == keys.u then
+   pass = pass..'u'
+  end
+  if code == keys.v then
+   pass = pass..'v'
+  end
+  if code == keys.w then
+   pass = pass..'w'
+  end
+  if code == keys.x then
+   pass = pass..'x'
+  end
+  if code == keys.y then
+   pass = pass..'y'
+  end
+  if code == keys.z then
+   pass = pass..'z'
+  end
+  if code == keys.enter then
+   break
+  end
+ end
+end
+if pass == 'password' then
+ return true
+else
+ print('Login incorrect')
+ sleep(1)
+ return false
+end

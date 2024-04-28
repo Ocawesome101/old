@@ -1,0 +1,5 @@
+log.info('Stopped /bin/sh')
+log.info('Stopping logging service')
+log.info('Reached target Restart')
+sleep(1)
+os.reboot()

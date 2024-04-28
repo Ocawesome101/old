@@ -1,0 +1,55 @@
+-- Bash-esque WGET --
+
+local function usage()
+ print('wget: missing URL/filename')
+ print('Usage: wget [URL]... [FILENAME]...')
+end
+
+local args = {...}
+
+if #args < 2 then
+ usage()
+ return
+end
+
+if not http then
+ printError('wget: HTTP is disabled.')
+ printError('Set http_enabled to true in ComputerCraft.cfg to enable HTTP.')
+end
+
+local function get(url)
+ print(os.time(), url)
+ print('Resolving and connecting to '..url..' ...')
+ local ok, err = http.checkURL(url)
+ if not ok then
+  print('Error connecting to '..url)
+  if err then print(err) end
+  return nil
+ end
+ print('HTTP request sent, awaiting response...')
+ local response = http.get(url, nil, true)
+ if not response then
+  print('404 Not Found')
+  return nil
+ end
+ print('200 OK')
+ local out = response.readAll()
+ response.close()
+ return out
+end
+
+local url = args[1]
+local file = args[2]
+local path = shell.resolve(file)
+if fs.exists(file) then
+ print('Error: file already exists')
+ return
+end
+
+local res = get(url)
+if res then
+ local dfile = fs.open(path, 'wb')
+ dfile.write(res)
+ dfile.close()
+ print(file..' saved.')
+end
