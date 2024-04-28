@@ -37,3 +37,4 @@ oc-litekernel
 ocemu-cc
 open-fs
 openstandards
+open-packages
