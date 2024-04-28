@@ -14,3 +14,4 @@ ocpu_v1
 cpm
 ocpm
 ocpm-pkgs
+oc-linux-cc
