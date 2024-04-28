@@ -51,3 +51,4 @@ openos-1.0
 openfs
 open-kernel-2
 standard-lua-vled
+oc-dos
