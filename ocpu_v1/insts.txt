@@ -1,0 +1,7 @@
+# LD R R       | 00 | reg[0-7] | 00 | reg[0-7] | Load register 1 with contents of register 2
+# LDM R $AB CD | 01 | reg[0-7] | AB | CD       | Load register with contents of memory address AB CD
+# LDR R AB CD  | 02 | reg[0-7] | AB | CD       | Load register with value AB CD
+# ST R $AB CD  | 10 | reg[0-7] | AB | CD       | Store contents of register in memory address AB CD
+# STD AB CD EF | 11 | AB       | CD | EF       | Store value AB in display memory address CD EF
+# NOOP         | FE | 00       | 00 | 00       | Does nothing. Useful for filling out programs
+# HALT         | FF | 00       | 00 | 00       | Stops execution - nothing after HALT will run.

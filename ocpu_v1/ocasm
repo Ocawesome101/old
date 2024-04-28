@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+#
+# Assembler for the OCPU. Fairly simple program.
+
+# See the example.asm file on GitHub for an example of OCPU assembly.
+
+# Instructions are:
+
+# format | opcode | regID | dataH | dataL
+
+# LD R R       | 00 | reg[0-7] | 00 | reg[0-7] | Load register 1 with contents of register 2
+# LDM R $AB CD | 01 | reg[0-7] | AB | CD       | Load register with contents of memory address AB CD
+# LDR R AB CD  | 02 | reg[0-7] | AB | CD       | Load register with value AB CD
+# ST R $AB CD  | 10 | reg[0-7] | AB | CD       | Store contents of register in memory address AB CD
+# STD AB DSP   | 11 | AB       | CD | EF       | Store value AB in display memory address CD EF
+# NOOP         | FE | 00       | 00 | 00       | Does nothing. Useful for filling out programs
+# HALT         | FF | 00       | 00 | 00       | Stops execution - nothing after HALT will run.
+
+# To write assembly, replace the OpCode with its ASCII equivalent, i.e. replace 01 with LDM.
+# All other values must still be hexadecimal.
+
+# The OCPU Emulator is located at https://scratch.mit.edu/projects/322195979/
+
+import sys
+
+def parse(line):
+    insts = []
+    i = 0
+    t = 0
+    while t < 4:
+        word = ''
+
+        print('ps wd')
+        
+        while True:
+            if i < len(line):
+                if line[i] != ' ':
+                    print(line[i])
+                    word = word + str(line[i])
+                    i = i + 1
+                    print('inc i')
+                else:
+                    print('br')
+                    break
+            else:
+                print('br')
+                break
+
+        i = i + 1
+        print('inc i')
+        t = t + 1
+        print('inc t')
+        insts.append(word)
+        print('add wd ' + word)
+    print('rtn')
+    return insts
+
+def parseASM(line):
+    print('ps ln ' + line)
+    code = parse(line)
+    ln = ''
+    
+    if len(code) < 4:
+        print('err')
+        raise ExceptionError
+
+    print('ps inst ' + code[0].upper())
+    if code[0].upper() == 'LD':
+        ln = ln + '00'
+
+    if code[0].upper() == 'LDM':
+        ln = ln + '01'
+
+    if code[0].upper() == 'LDR':
+        ln = ln + '02'
+
+    if code[0].upper() == 'ST':
+        ln = ln + '10'
+
+    if code[0].upper() == 'STD':
+        ln = ln + '11'
+
+    if code[0].upper() == 'NOOP':
+        ln = ln + 'FE'
+
+    if code[0].upper() == 'HALT':
+        ln = ln + 'FF'
+    
+    print('asm ln')
+    ln = ln + ' ' + code[1] + ' ' + code[2] + ' ' + code[3]
+
+    print('got ' + ln)
+
+    print('rtn')
+    return ln
+
+infile = open(sys.argv[1],'r')
+out = open('out.oca','w')
+for line in infile:
+    out.write(parseASM(line))
+    
+infile.close()
+out.close()

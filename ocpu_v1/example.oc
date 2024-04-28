@@ -1,0 +1,96 @@
+clear 01
+
+setreg 3 1 
+store 3 0 
+
+clear 00
+
+setreg 3 1 
+store 3 0 
+
+; o
+setpx 2 01
+setpx 3 01
+setpx 4 01
+setpx 5 01
+setpx 6 01
+setpx 241 01
+setpx 247 01
+setpx 481 01
+setpx 487 01
+setpx 721 01
+setpx 727 01
+setpx 961 01
+setpx 967 01
+setpx 1201 01
+setpx 1207 01
+setpx 1441 01
+setpx 1447 01
+setpx 1682 01
+setpx 1683 01
+setpx 1684 01
+setpx 1685 01
+
+; c
+setpx 10 01
+setpx 11 01
+setpx 12 01
+setpx 13 01
+setpx 249 01
+setpx 254 01
+setpx 489 01
+setpx 729 01
+setpx 969 01
+setpx 1209 01
+setpx 1449 01
+setpx 1454 01
+setpx 1690 01
+setpx 1691 01
+setpx 1692 01
+setpx 1693 01
+
+; p
+setpx 16 01
+setpx 17 01
+setpx 18 01
+setpx 19 01
+setpx 256 01
+setpx 260 01
+setpx 496 01
+setpx 500 01
+setpx 736 01
+setpx 740 01
+setpx 976 01
+setpx 977 01
+setpx 978 01
+setpx 979 01
+setpx 1216 01
+setpx 1456 01
+setpx 1696 01
+
+; u
+setpx 22 01
+setpx 26 01
+setpx 262 01
+setpx 266 01
+setpx 502 01
+setpx 506 01
+setpx 742 01
+setpx 746 01
+setpx 982 01
+setpx 986 01
+setpx 1222 01
+setpx 1226 01
+setpx 1462 01
+setpx 1466 01
+setpx 1703 01
+setpx 1704 01
+setpx 1705 01
+
+; lines preceded with a ; are ignored by the compiler, as are blank lines.
+; However,
+; 'setpx 1 01 ; sets pixel to on'
+; does not work.
+setreg 1 1 
+store 1 0 
+halt
