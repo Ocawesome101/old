@@ -1,0 +1,86 @@
+-- User system --
+
+local username = ""
+local userid = ""
+
+local _fs = {}
+
+for k,v in pairs(fs) do
+  _fs[k] = v
+end
+
+local users = {}
+
+local function getCreds()
+  --[[local h = _fs.open("/etc/passwd", "r")
+  if h then
+    local creds = h.readAll()
+  else
+    return {["user"] = {password="password",uid=1}}
+  end
+  h.close()
+  print(creds)]]
+  return loadfile("/etc/passwd")()
+--  return loadstring(creds, "@users.getCreds", "bt", _G)
+end
+
+local function authenticate(uname, pwd)
+  local creds = getCreds()
+  for k,v in pairs(creds) do
+    if k == uname and v.password == pwd then
+      return true, v.uid
+    else
+      return false
+    end
+  end
+end
+
+function users.user()
+  return username
+end
+
+function users.uid()
+  return userid
+end
+
+function users.login(uname, pwd)
+  local ok, uid = authenticate(uname, pwd)
+  if ok then
+    username = uname
+    userid = uid
+    return true
+  end
+  return false
+end
+
+function users.homeDir()
+  if username == "root" and userid == 0 then
+    return "/root"
+  else
+    return "/home/" .. username
+  end
+end
+
+function users.logout()
+  username = ""
+  userid = ""
+end
+
+function users.su()
+  local olduser = username
+  local olduid = userid
+  local succ = users.login()
+  if succ then
+    local oldlogout = users.logout
+    function users.logout()
+      username = olduser
+      userid = olduid
+      users.logout = oldlogout
+    end
+    return true
+  else
+    return false
+  end
+end
+
+return users

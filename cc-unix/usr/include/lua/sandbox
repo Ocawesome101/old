@@ -1,0 +1,47 @@
+-- Sandboxing API --
+
+local sb = {}
+
+local function tcopy(tbl)
+  local rtn = {}
+  for k,v in pairs(tbl) do
+    rtn[k] = v
+  end
+  return rtn
+end
+
+function sb.basicGlobalTable()
+  local env = {}
+  env.os = tcopy(os)
+  env.fs = tcopy(fs)
+  env.table = tcopy(table)
+  env.string = tcopy(string)
+  env.require = require
+  env.term = tcopy(term)
+  env.write = write
+  env.print = print
+  env.tostring = tostring
+  env.tonumber = tonumber
+  env.setfenv = setfenv
+  env.getfenv = getfenv
+  env.setmetatable = setmetatable
+  env.getmetatable = getmetatable
+  env.read = read
+  if users then
+    env.users = tcopy(users)
+  end
+  env.loadstring = loadstring
+
+  return env
+end
+
+function sb.sandboxedRun(program)
+  local ok, err = loadfile(program)
+  if not ok then
+    error(err)
+  end
+  setfenv(ok, _G)--sb.basicGlobalTable())
+  ok()
+end
+
+return sb
