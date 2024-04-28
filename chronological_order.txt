@@ -24,3 +24,4 @@ oc-os-2
 open-oc-os
 ocbios
 lua-unix-utils
+cc-os
