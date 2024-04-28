@@ -1,0 +1,6 @@
+packages = {
+  ["ccemux"] = {
+    downloadURL = 'git:ocawesome101/ocpm-pkgs/master/ccemux.arc',
+    depends = nil
+  }
+}
