@@ -1,4 +1,6 @@
-In order of last commit, from oldest to newest:
+Roughly in order of last commit, from oldest to newest.
+Actually based on when I added the files to this repository.
+=====================
 python-ping-gui
 ocfm
 webpages
@@ -7,3 +9,4 @@ oc-linux-cc-old
 ocpkg
 ocpackages
 stuff
+cc-dos

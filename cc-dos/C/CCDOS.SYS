@@ -1,0 +1,15 @@
+-- Systemfile for CC-DOS --
+
+function os.version()
+ return "CC-DOS 1.0"
+end
+
+shell.run('/C/AUTOEXEC.BAT')
+
+shell.setDir('/C')
+
+_G.DRIVE = 'C'
+
+term.setCursorBlink(false)
+
+shell.run('/C/COMMAND.COM')
