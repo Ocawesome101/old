@@ -17,3 +17,4 @@ ocpm-pkgs
 oc-linux-cc
 oc-os
 oc-os-packages
+ocpu-v2
