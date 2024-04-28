@@ -58,3 +58,4 @@ oc-minix
 oc-monolith-old
 oc-c-os
 lua-libs
+open-craftos-2
