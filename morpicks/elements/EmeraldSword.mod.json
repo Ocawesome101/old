@@ -1,0 +1,27 @@
+{
+  "_fv": 4,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "emerald_sword",
+    "customModelName": "Normal",
+    "name": "Emerald Sword",
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 4,
+    "efficiency": 7.0,
+    "attackSpeed": 2.6,
+    "enchantability": 15,
+    "damageVsEntity": 10.0,
+    "usageCount": 5000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.EMERALD"
+      }
+    ]
+  }
+}

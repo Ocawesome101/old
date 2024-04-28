@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {},
+      "name": "default"
+    },
+    "emerald_sword": {
+      "map": {},
+      "name": "emerald_sword"
+    }
+  }
+}
