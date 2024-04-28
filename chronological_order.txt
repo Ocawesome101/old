@@ -47,3 +47,4 @@ oc-l4
 basic-oc-os
 lua-utils
 open-kernel
+openos-1.0
