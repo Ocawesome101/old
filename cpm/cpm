@@ -1,0 +1,126 @@
+#!/bin/bash
+# This is a simple tool I wrote to (sort of) manage my C projects.
+
+set -e
+
+VERSION="0.9.2"
+
+usage() {
+USE="
+C Project Manager $VERSION by Ocawesome101.
+
+Usage:
+cpm new <name>
+cpm run|build|resolve
+
+Project name and any package dependencies should be specified in the config file. Note that package names are probably distribution-specific.
+Custom compiler flags should be supported at some point in the future.
+"
+echo "$USE"
+}
+
+test_gcc() { # Test for GCC availability
+ if ! [ -e "/usr/bin/gcc" ]; then
+  echo "-> Error: You do not have GCC installed!"
+  exit 1
+ else
+  echo "-> Found GCC"
+ fi
+}
+
+get_location() {
+ if [ -e "./config" ]; then
+  projdir="."
+ elif [ -e "../config" ]; then
+  projdir=".."
+ elif [ -e "../../config" ]; then
+  projdir="../.."
+ else
+  echo "-> Error: You do not appear to be in a project directory!"
+  exit 1
+ fi
+}
+
+check_pkgman() {
+ if [ -e "/usr/bin/pacman" ]; then
+  pkgman="pacman"
+  inst="-S"
+ elif [ -e "/usr/bin/apt" ]; then
+  pkgman="apt"
+  inst="install"
+ elif [ -e "/usr/bin/dnf" ]; then
+  pkgman="dnf"
+  inst="install"
+ else
+  echo "-> Error: Could not find Apt, Pacman, or DNF."
+  exit 1
+ fi
+}
+
+compile() {
+ echo "-> Figuring out where you are"
+ get_location
+ echo "-> Getting project info"
+ source "$projdir""/config"
+ echo "-> Making sure you have GCC installed"
+ test_gcc
+ echo "-> Compiling project $name"
+ echo " -> gcc -o $projdir/build/$name $projdir/src/main.c"
+ gcc -o "$projdir""/build/""$name" "$projdir""/src/main.c"
+}
+
+case "$1" in
+ new)
+  if [ -z "$2" ]; then
+   usage
+   exit 1
+  fi
+  echo "-> Creating folders"
+  mkdir -p "$2""/src/libs" "$2""/build/"
+  echo "-> Generating standard config file"
+  echo "name='$2'" >> "$2""/config"
+  echo "flags=''" >> "$2""/config"
+  echo "-> Generating main.c"
+  FILE="$2""/src/main.c"
+  echo "#include <stdio.h>" >> "$FILE"
+  echo "" >> "$FILE"
+  echo "int main() {" >> "$FILE"
+  echo ' printf("Hello, World!\n");' >> "$FILE"
+  echo "}" >> "$FILE"
+  echo "Done."
+  exit 0
+  ;;
+ build)
+  compile
+  echo "-> Done."
+  ;;
+ run)
+  compile
+  echo "-> Running project"
+  "$projdir""/build/""$name"
+  rm -rf "$name"
+  echo "-> Done."
+  ;;
+ resolve)
+  echo "-> Figuring out where you are"
+  get_location
+  echo "-> Getting project info"
+  source "$projdir""/config"
+  echo "-> Checking dependencies"
+  if [ "$depends" ]; then
+   echo "-> Checking package manager"
+   check_pkgman
+   "$pkgman" "$inst" "$depends"
+  else
+   echo "-> No dependencies to resolve."
+  fi
+  ;;
+ --help)
+  usage
+  exit 0
+  ;;
+ *)
+  usage
+  exit 1
+  ;;
+esac
