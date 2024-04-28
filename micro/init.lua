@@ -1,0 +1,2 @@
+-- init --
+local a,i=computer.getBootAddress(),component.invoke;local h,e=i(a,"open","/micro/core.lua")if not h then error(e)end local s=""repeat local c=i(a,"read",h,math.huge)s=s..(c or"")until not c i(a,"close",h)local o,e=load(s,"=core.lua","t",_G)if not o then error(e)end o()
