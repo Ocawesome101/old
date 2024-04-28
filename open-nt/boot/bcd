@@ -1,0 +1,23 @@
+{
+  timeout = 3,
+  {
+    name = "OpenNT (Shell)",
+    file = "/nt/system32/ntoskrnl.lua",
+    args = {
+      log = false,
+      services = true,
+      multiuser = true,
+      interface = "cmd"
+    }
+  },
+  {
+    name = "OpenNT (GUI)",
+    file = "/nt/system32/ntoskrnl.lua",
+    args = {
+      log = true,
+      services = true,
+      multiuser = true,
+      interface = "shell32"
+    }
+  }
+}
