@@ -54,3 +54,4 @@ standard-lua-vled
 oc-dos
 open-nt
 oc-computos
+oc-minix
