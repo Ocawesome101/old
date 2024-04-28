@@ -1,0 +1,14 @@
+{
+  {
+    path = "/bin/ocsh.lua"
+    granted = {
+      "hasFS"
+    }
+  },
+  {
+    path = "/bin/cat.lua",
+    granted = {
+      "hasFS"
+    }
+  }
+}
