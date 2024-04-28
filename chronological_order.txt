@@ -62,3 +62,4 @@ open-craftos-2
 cc-ocbios
 oc-cc-kernel
 lua-games
+oc-stream
