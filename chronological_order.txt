@@ -29,3 +29,4 @@ oc-kernel
 ocs-lightsabers
 morpicks
 cc-bios
+oc-os-v1
